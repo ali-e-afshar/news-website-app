@@ -124,3 +124,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+AUTH_USER_MODEL = 'accounting.User'
+
+LOGIN_URL = '/accounting/login/'
+LOGIN_REDIRECT_URL = '/accounting/admin-dashboard/'
+LOGOUT_REDIRECT_URL = '/'
