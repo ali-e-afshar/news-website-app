@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Latest News</h2>
+  <ul>
+    {% for news in latest_news_posts %}
+      <li>
+        <a href="{% url 'news_detail' news.pk %}">{{ news.title }}</a>
+        <p>{{ news.publication_date }}</p>
+      </li>
+    {% empty %}
+      <li>No news available.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -6,4 +6,5 @@ urlpatterns = [
     path('<int:pk>/', views.news_detail, name='news_detail'),
     path('<int:pk>/add_comment/', views.add_comment, name='add_comment'),
     path('<int:pk>/like/', views.like_post, name='like_post'),
+    path('latest/', views.latest_news, name='latest_news'),  # Add this line
 ]

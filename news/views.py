@@ -41,3 +41,8 @@ def like_post(request, pk):
         news_post.likes += 1
         news_post.save()
     return redirect('news_detail', pk=news_post.pk)
+
+def latest_news(request):
+    # Fetch the 5 most recent news posts
+    latest_news_posts = NewsPost.objects.all()[:5]
+    return render(request, 'latest_news.html', {'latest_news_posts': latest_news_posts})
