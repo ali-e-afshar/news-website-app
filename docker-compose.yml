@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  accounts:
+    build:
+      context: .
+      dockerfile: accounting/Dockerfile
+    container_name: accounting
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - DJANGO_SETTINGS_MODULE=news_website.settings
+    depends_on:
+      - news
+
+  news:
+    build:
+      context: .
+      dockerfile: news/Dockerfile
+    container_name: news
+    ports:
+      - "8001:8001"
+    volumes:
+      - .:/app
+    environment:
+      - DJANGO_SETTINGS_MODULE=news_website.settings
