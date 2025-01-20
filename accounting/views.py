@@ -1,8 +1,7 @@
+# accounts/views.py
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login, authenticate
 from .forms import RegistrationForm
-from django.contrib.auth.forms import PasswordResetForm
+from django.contrib.auth import login
 
 
 def register(request):
@@ -14,22 +13,4 @@ def register(request):
             return redirect('home')
     else:
         form = RegistrationForm()
-    return render(request, 'accounting/register.html', {'form': form})
-
-
-@login_required
-def admin_dashboard(request):
-    if request.user.user_type in ['SU', 'AU']:
-        return render(request, 'accounting/admin_dashboard.html')
-    return redirect('home')
-
-
-def forgot_password(request):
-    if request.method == 'POST':
-        form = PasswordResetForm(request.POST)
-        if form.is_valid():
-            form.save(request=request)
-            return redirect('password_reset_done')
-    else:
-        form = PasswordResetForm()
-    return render(request, 'accounting/forgot_password.html', {'form': form})
+    return render(request, 'register.html', {'form': form})

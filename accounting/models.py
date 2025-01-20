@@ -1,9 +1,8 @@
-# accounting/models.py
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
-class User(AbstractUser):
+class CustomUser(AbstractUser):
     USER_TYPE_CHOICES = (
         (1, 'Super User'),
         (2, 'Admin User'),
