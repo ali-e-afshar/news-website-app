@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <title>{{ news_post.title }}</title>
+</head>
+<body>
+    <h2>{{ news_post.title }}</h2>
+    <p>{{ news_post.content }}</p>
+    <p>Published by: {{ news_post.admin_user.username }}</p>
+    <p>Likes: {{ news_post.likes }}</p>
+    <p>Comments: {{ news_post.comments_count }}</p>
+    <!-- Add forms for liking and commenting here -->
+</body>
+</html>

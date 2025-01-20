@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News List</title>
+</head>
+<body>
+    <h2>News Posts</h2>
+    <ul>
+        {% for news in news_posts %}
+            <li>
+                <a href="{% url 'news_detail' news.pk %}">{{ news.title }}</a>
+                - {{ news.publication_date }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
