@@ -16,6 +16,7 @@ class NewsPost(models.Model):
     class Meta:
         ordering = ['-publication_date']  # Sort by publication date (newest first)
 
+
 class Comment(models.Model):
     news_post = models.ForeignKey(NewsPost, on_delete=models.CASCADE, related_name='comments')
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
@@ -27,7 +28,3 @@ class Like(models.Model):
     news_post = models.ForeignKey(NewsPost, on_delete=models.CASCADE, related_name='likes_rel')
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
-
-
-
-
